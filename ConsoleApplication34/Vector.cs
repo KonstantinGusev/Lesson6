@@ -9,8 +9,7 @@ namespace ConsoleApplication34
     class Vector
     {
         public decimal[] vector;//поле
-        static Random R = new Random(); // генератор случайных чисел//поле
-
+       
         public Vector(int n)//конструктор
         {
             vector = new decimal[n];
@@ -66,16 +65,19 @@ namespace ConsoleApplication34
             return v3;
         }
 
-        //умножение на скаляр
-        public static Vector operator *(Vector v1, int scal) //перегруженный оператор
+        
+        public int ScalarProiz (Vector v1, Vector v2) //скалярное произведение
         {
+            int scal = 0;
             Vector v3 = new Vector(v1.Size());
             for (int i = 0; i < v1.Size(); ++i)
             {
-                v3.vector[i] = v1.vector[i] * scal;
+                scal += (int)v1.vector[i] *(int)v2.vector[i];
             }
-            return v3;
+            return scal;
         }
+        
+      
 
         public void Input(Vector v1)//метод ввода с клавиатуры
         { 
@@ -87,14 +89,30 @@ namespace ConsoleApplication34
             }
         }
 
-        //генератор векторов
-        public void Generic(Vector v1)
+        //модуль вектора
+        public double Abs(Vector v1)
         {
+            double abs = 0, product = 0;
             Vector v3 = new Vector(v1.Size());
-            for (int i = 1; i < v1.Size(); i++)
+            for (int i = 0; i < v1.Size(); i++)
             {
-                v3.vector[i] = R.Next(1, 9);
+                product += v3[i] * v3[i];
+                abs = Math.Sqrt(product);
             }
+            return abs;
+        }
+        static Random R = new Random(); // генератор случайных чисел//поле
+        public List<int> numbers = new List<int>();
+        int[] numbersvectors = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        ////генератор векторов
+        //public void Generic(Vector v1)
+        //{
+        //    Vector v3 = new Vector(v1.Size());
+        //    foreach ()
+        //    {
+
+        //        v3.vector[i] = R.Next(1, 9);
+        //    }
         }
     }
 }
