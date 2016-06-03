@@ -9,8 +9,6 @@ namespace ConsoleApplication34
 {
     class Program
     {
-        static Random rnd = new Random();
-        
 
         static void Main(string[] args)
         {
